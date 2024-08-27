@@ -10,7 +10,8 @@ class InvestmentTest {
 
     @Test
     public void should_return_erro_when_value_of_investment_is_equal_or_lower_then_zero(){
-        Exception e = assertThrows(IllegalArgumentException.class, () -> investment = new Investment());
+        Exception e = assertThrows(IllegalArgumentException.class,
+                () -> investment = new Investment("Test Investment", InvestmentType.FIXED_INCOME, 0, "Test"));
         assertEquals("Value equal or lower then zero not supported", e.getMessage());
     }
 
