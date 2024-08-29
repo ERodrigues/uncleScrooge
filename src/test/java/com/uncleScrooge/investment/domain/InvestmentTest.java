@@ -22,4 +22,10 @@ class InvestmentTest {
         assertEquals("The field broker is mandatory", e.getMessage());
     }
 
+    @Test
+    public void should_return_erro_when_type_of_investment_is_not_informed(){
+        Exception e = assertThrows(IllegalArgumentException.class,
+                () -> investment = new Investment("Test Investment", null, 1, "t"));
+        assertEquals("The field type is mandatory", e.getMessage());
+    }
 }
