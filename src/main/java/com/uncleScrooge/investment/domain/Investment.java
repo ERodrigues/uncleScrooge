@@ -5,14 +5,11 @@ import ch.qos.logback.core.util.StringUtil;
 public class Investment {
     private Integer id;
     private String name;
-    private InvestmentType type;
     private Double value;
     private String broker;
-    private Double taxReturn;
 
-    public Investment(String name, InvestmentType type, double value, String broker) {
+    public Investment(String name, double value, String broker) {
         this.name = name;
-        this.type = type;
         this.value = value;
         this.broker = broker;
         validate();
@@ -24,8 +21,5 @@ public class Investment {
 
         if (StringUtil.isNullOrEmpty(this.broker))
             throw new IllegalArgumentException("The field broker is mandatory");
-
-        if (type == null)
-            throw new IllegalArgumentException("The field type is mandatory");
     }
 }
