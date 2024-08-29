@@ -1,7 +1,6 @@
 package com.uncleScrooge.investment.domain;
 
 import ch.qos.logback.core.util.StringUtil;
-import org.springframework.util.StringUtils;
 
 public class Investment {
     private Integer id;
@@ -9,6 +8,7 @@ public class Investment {
     private InvestmentType type;
     private Double value;
     private String broker;
+    private Double taxReturn;
 
     public Investment(String name, InvestmentType type, double value, String broker) {
         this.name = name;
@@ -24,5 +24,8 @@ public class Investment {
 
         if (StringUtil.isNullOrEmpty(this.broker))
             throw new IllegalArgumentException("The field broker is mandatory");
+
+        if (type == null)
+            throw new IllegalArgumentException("The field type is mandatory");
     }
 }
